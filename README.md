@@ -7,12 +7,15 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 In the project directory, you can run:
 
 ### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```
+npx create-react-app
+npm install @mui/material @emotion/react @emotion/styled
+npm i @mui/x-data-grid @mui/icons-material react-router-dom@6
+npm i react-pro-sidebar 
+npm i formik yup
+npm i @fullcalendar/core @fullcalendar/timegrid @fullcalendar/list
+npm i @nivo/core @nivo/pie @nivo/line @nivo/bar @nivo/geo 
+```
 
 ### `npm test`
 
