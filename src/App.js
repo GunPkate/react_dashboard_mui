@@ -1,13 +1,12 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { ColorModeContext, useMode } from './theme'
-import { useState } from 'react';
 import Topbar from './scenes/global/Topbar';
 
 function App() {
-  const [theme, colorMode] = useState();
+  const [theme, colorMode] = useMode();
   return (
     <ColorModeContext.Provider value={colorMode}>
-      {/* <ThemeProvider theme={theme}> */}
+      <ThemeProvider theme={theme}>
       <CssBaseline>
           <div className="App">
             <main className='content'>
@@ -15,7 +14,7 @@ function App() {
             </main>
           </div>
       </CssBaseline>
-      {/* </ThemeProvider> */}
+      </ThemeProvider>
     </ColorModeContext.Provider>
   );
 }
