@@ -8,6 +8,7 @@ import DarkModeOutlinedIcon from "@mui/icons-material/DarkModeOutlined";
 import NotAccessibleOutlinedIcon from "@mui/icons-material/NotAccessibleOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import Person2OutlinedIcon from "@mui/icons-material/Person2Outlined";
+// import styled from "@enotion/styled"
 
 
 export default function Topbar() {
@@ -29,14 +30,17 @@ export default function Topbar() {
 
             {/* Icons */}
             <Box display="flex">
-                <IconButton><LightModeOutlinedIcon /></IconButton>
-                <IconButton><DarkModeOutlinedIcon /></IconButton>
+                <IconButton onClick={colorMode.toggleColorMode}>
+                    {theme.palette.mode === 'dark' ?
+                        <DarkModeOutlinedIcon />:
+                        <LightModeOutlinedIcon /> 
+                    }
+                </IconButton>
                 <IconButton><NotAccessibleOutlinedIcon/></IconButton>
                 <IconButton><SettingsOutlinedIcon/></IconButton>
                 <IconButton><Person2OutlinedIcon/></IconButton>
-                <IconButton></IconButton>
+
             </Box>
-            <IconButton sx={{}}></IconButton>
         </Box>
     )
 }
