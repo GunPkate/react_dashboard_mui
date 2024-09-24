@@ -12,7 +12,7 @@ import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined
 import HelpOutlinedIcon from "@mui/icons-material/HelpOutlined";
 import BarChartOutlinedIcon from "@mui/icons-material/BarChartOutlined";
 import PieChartOutlinedIcon from "@mui/icons-material/PieChartOutlined";
-// import TimeLineOutlinedIcon from "@mui/icons-material/TimeLineOutlined";
+import TimelineOutlinedIcon from '@mui/icons-material/TimelineOutlined';
 import MenuOutlinedIcon from "@mui/icons-material/MenuOutlined";
 import MaplinedIcon from "@mui/icons-material/MapOutlined";
 
@@ -20,10 +20,14 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     return (
-        <MenuItem active={selected === title}>
-            <Typography></Typography>
-            <Link/>
-        </MenuItem>
+        <Link to={to}>
+            <MenuItem active={selected === title}
+                style={{ color: colors.grey[100] }}
+                onClick={() => { setSelected(title) }}
+                icon={icon}>
+                <Typography>{title}</Typography>
+            </MenuItem>
+        </Link>
     )
 }
 
@@ -35,13 +39,24 @@ const Sidebar = () => {
 
     return (
         <Box sx={{
-            "& .pro-sider-inner": { background: `${colors.primary[400]} !importane` },
-            "& .pro-icon-wrapper": { backgroundColor: "transparent !importane" },
+            "& .pro-sidebar-inner": { background: `${colors.primary[400]} !important` },
+            "& .pro-icon-wrapper": { backgroundColor: "transparent !important" },
             "& .pro-inner-item": { padding: "5px 35px 5px 20px !important" },
             "& .pro-inner-item:hover ": { color: "#868dfb !important" },
-            "& .pro-menu-item:active ": { color: "#6870fa !important" },
+            "& .pro-menu-item.active ": { color: "#6870fa !important" },
         }}>
-            <ProSidebar>
+            <ProSidebar collapsed={isCollapse}>
+                <Menu iconShape="square">
+                    <MenuItem
+                        onClick={() => { setIsCollapse(!isCollapse) }}
+                        icon={isCollapse ? <MenuOutlinedIcon /> : undefined}
+                        style={{
+                            margin: "10px 0 20px 0",
+                            color: colors.grey[100]
+                        }}
+                    >
+                    </MenuItem>
+                </Menu>
                 <Menu>
                     <MenuItem>
                         {!isCollapse && (
@@ -52,7 +67,7 @@ const Sidebar = () => {
                                 ml="15px"
                             >
                                 <Typography variant="h3" color={colors.grey[100]}>ADMINS</Typography>
-                                <IconButton onClick={() => { setIsCollapse(isCollapse) }}> <MenuOutlinedIcon /> </IconButton>
+                                <IconButton onClick={() => { setIsCollapse(!isCollapse) }}> <MenuOutlinedIcon /> </IconButton>
                             </Box>
                         )}
                     </MenuItem>
@@ -77,10 +92,105 @@ const Sidebar = () => {
                                 >
                                     User
                                 </Typography>
-                                <Typography variant="h5" color={colors.grey[100]}>VP ADMIN</Typography>
+                                <Typography variant="h5" color={colors.greenAccent[100]}>VP ADMIN</Typography>
                             </Box>
                         </Box>
                     )}
+
+                    <Box paddingLeft={isCollapse ? undefined : "10%"}>
+                        <Item
+                            title={ !isCollapse ? "Dashboard" : ""}
+                            to="/"
+                            icon={<HomeOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Typography
+                            variant="h6"
+                            color={colors.grey[300]}
+                            sx={{ m: "15px 0 5px 20px" }}
+                        >
+                            Data
+                        </Typography>
+                        <Item
+                            title={ !isCollapse ? "Manage Team" : ""}
+                            to="/team"
+                            icon={<PeopleOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={ !isCollapse ? "Contact Information" : ""}
+                            to="/contacts"
+                            icon={<ContactsOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={ !isCollapse ? "Invoices Balances" : ""}
+                            to="/invoices"
+                            icon={<ReceiptOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Typography
+                            variant="h6"
+                            color={colors.grey[300]}
+                            sx={{ m: "15px 0 5px 20px" }}
+                        >
+                            Pages
+                        </Typography>
+                        <Item
+                            title={ !isCollapse ? "Profile Form" : ""}
+                            to="/form"
+                            icon={<PersonOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={ !isCollapse ? "Calendar" : ""}
+                            to="/calendar"
+                            icon={<CalendarTodayOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={ !isCollapse ? "FAQ Page" : ""}
+                            to="/faq"
+                            icon={<HelpOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Typography
+                            variant="h6"
+                            color={colors.grey[300]}
+                            sx={{ m: "15px 0 5px 20px" }}
+                        >
+                            Chart
+                        </Typography>
+                        <Item
+                            title={ !isCollapse ? "Bar Chart" : ""}
+                            to="/bar"
+                            icon={<BarChartOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={ !isCollapse ? "Pie Chart" : ""}
+                            to="/pie"
+                            icon={<PieChartOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={ !isCollapse ? "Line Chart" : ""}
+                            to="/line"
+                            icon={<TimelineOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+
+                    </Box>
                 </Menu>
             </ProSidebar>
         </Box>
