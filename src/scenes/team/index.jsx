@@ -16,6 +16,14 @@ const mockDataTeam = [
       phone: "(665)121-5454",
       access: "admin",
     },
+    {
+        id: 2,
+        name: "Cersei Lannister",
+        email: "cerseilannister@gmail.com",
+        age: 42,
+        phone: "(421)314-2288",
+        access: "manager",
+    },
 ]
 
 export default function Team() {
@@ -23,23 +31,20 @@ export default function Team() {
     const colors = tokens(theme.palette.mode);
     const columns = [
         { field: "id", headerName: "ID" },
-        { field: "registerId", headerName: "Register ID" },
         { field: "name", headerName: "Name", flex: 1, cellClassName: "name-column--cell" },
         { field: "age", headerName: "Age", type: "number", align: "left", headerAlign: "left" },
         { field: "phone", headerName: "Phone Number", flex: 1 },
         { field: "email", headerName: "Email", flex: 1 },
-        { field: "address", headerName: "Address", flex: 1 },
-        { field: "city", headerName: "City", flex: 1 },
-        { field: "zipCode", headerName: "ZipCode", flex: 1 },
         {
             field: "access", headerName: "Access Level", flex: 1, renderCell: ({ row: { access } }) => {
                 return (
                     <Box
                         width="60%"
-                        m="0 auto"
+                        my="10px"
                         p="5px"
                         display="flex"
                         justifyContent="center"
+                        alignItems="center"
                         backgroundColor={
                             access === "admin" ?
                                 colors.greenAccent[600] : colors.greenAccent[700]
