@@ -74,7 +74,7 @@ export default function Contacts() {
 
     return (
         <Box m="20px">
-            <Header title="Team" Subtitle="Managing Team Members" />
+            <Header title="Contacts" Subtitle="Managing Contacts Members" />
             <Box
                 m="40px 0 0 0" height="75vh"
                 sx={{
