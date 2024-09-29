@@ -4,6 +4,7 @@ import Topbar from './scenes/global/Topbar';
 import Sidebar from './scenes/global/Sidebar'
 import { Routes, Route } from 'react-router-dom'
 import Dashboard from './scenes/dashboard/Dashboard';
+import Team from './scenes/team';
 // import Dashboard from './scenes/dashboard'
 // import Team from './scenes/team'
 // import Invoices from './scenes/invoices'
@@ -28,6 +29,7 @@ function App() {
               <Topbar/>
               <Routes>
                 <Route path="/" element={<Dashboard/>}/>
+                <Route path="/team" element={<Team/>}/>
               </Routes>
             </main>
           </div>
