@@ -3,6 +3,7 @@ import { ProSidebar, Menu, MenuItem } from "react-pro-sidebar"
 import { Box, IconButton, Typography, useTheme } from "@mui/material"
 import { Link } from "react-router-dom";
 import { tokens } from "../../theme";
+import "react-pro-sidebar/dist/css/styles.css";
 import HomeOutlinedIcon from "@mui/icons-material/HomeOutlined";
 import PeopleOutlinedIcon from "@mui/icons-material/PeopleOutlined";
 import ContactsOutlinedIcon from "@mui/icons-material/ContactsOutlined";
@@ -20,14 +21,13 @@ const Item = ({ title, to, icon, selected, setSelected }) => {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
     return (
-        <Link to={to}>
-            <MenuItem active={selected === title}
-                style={{ color: colors.grey[100] }}
-                onClick={() => { setSelected(title) }}
-                icon={icon}>
-                <Typography>{title}</Typography>
-            </MenuItem>
-        </Link>
+        <MenuItem active={selected === title}
+            style={{ color: colors.grey[100] }}
+            onClick={() => { setSelected(title) }}
+            icon={icon}>
+            <Typography>{title}</Typography>
+            <Link to={to} />
+        </MenuItem>
     )
 }
 
@@ -46,19 +46,15 @@ const Sidebar = () => {
             "& .pro-menu-item.active ": { color: "#6870fa !important" },
         }}>
             <ProSidebar collapsed={isCollapse}>
-                <Menu iconShape="square">
+                <Menu>
                     <MenuItem
-                        onClick={() => { setIsCollapse(!isCollapse) }}
+                        onClick={() => setIsCollapse(!isCollapse)}
                         icon={isCollapse ? <MenuOutlinedIcon /> : undefined}
                         style={{
                             margin: "10px 0 20px 0",
-                            color: colors.grey[100]
+                            color: colors.grey[100],
                         }}
                     >
-                    </MenuItem>
-                </Menu>
-                <Menu>
-                    <MenuItem>
                         {!isCollapse && (
                             <Box
                                 display="flex"
@@ -66,8 +62,10 @@ const Sidebar = () => {
                                 alignItems="center"
                                 ml="15px"
                             >
-                                <Typography variant="h3" color={colors.grey[100]}>ADMINS</Typography>
-                                <IconButton onClick={() => { setIsCollapse(!isCollapse) }}> <MenuOutlinedIcon /> </IconButton>
+                                <Typography variant="h3" color={colors.grey[100]}> ADMIN </Typography>
+                                <IconButton onClick={() => setIsCollapse(!isCollapse)}>
+                                    <MenuOutlinedIcon />
+                                </IconButton>
                             </Box>
                         )}
                     </MenuItem>
@@ -99,7 +97,7 @@ const Sidebar = () => {
 
                     <Box paddingLeft={isCollapse ? undefined : "10%"}>
                         <Item
-                            title={ !isCollapse ? "Dashboard" : ""}
+                            title={!isCollapse ? "Dashboard" : ""}
                             to="/"
                             icon={<HomeOutlinedIcon />}
                             selected={selected}
@@ -113,21 +111,21 @@ const Sidebar = () => {
                             Data
                         </Typography>
                         <Item
-                            title={ !isCollapse ? "Manage Team" : ""}
+                            title={!isCollapse ? "Manage Team" : ""}
                             to="/team"
                             icon={<PeopleOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title={ !isCollapse ? "Contact Information" : ""}
+                            title={!isCollapse ? "Contact Information" : ""}
                             to="/contacts"
                             icon={<ContactsOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title={ !isCollapse ? "Invoices Balances" : ""}
+                            title={!isCollapse ? "Invoices Balances" : ""}
                             to="/invoices"
                             icon={<ReceiptOutlinedIcon />}
                             selected={selected}
@@ -141,21 +139,21 @@ const Sidebar = () => {
                             Pages
                         </Typography>
                         <Item
-                            title={ !isCollapse ? "Profile Form" : ""}
+                            title={!isCollapse ? "Profile Form" : ""}
                             to="/form"
                             icon={<PersonOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title={ !isCollapse ? "Calendar" : ""}
+                            title={!isCollapse ? "Calendar" : ""}
                             to="/calendar"
                             icon={<CalendarTodayOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title={ !isCollapse ? "FAQ Page" : ""}
+                            title={!isCollapse ? "FAQ Page" : ""}
                             to="/faq"
                             icon={<HelpOutlinedIcon />}
                             selected={selected}
@@ -169,23 +167,30 @@ const Sidebar = () => {
                             Chart
                         </Typography>
                         <Item
-                            title={ !isCollapse ? "Bar Chart" : ""}
+                            title={!isCollapse ? "Bar Chart" : ""}
                             to="/bar"
                             icon={<BarChartOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title={ !isCollapse ? "Pie Chart" : ""}
+                            title={!isCollapse ? "Pie Chart" : ""}
                             to="/pie"
                             icon={<PieChartOutlinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
                         <Item
-                            title={ !isCollapse ? "Line Chart" : ""}
+                            title={!isCollapse ? "Line Chart" : ""}
                             to="/line"
                             icon={<TimelineOutlinedIcon />}
+                            selected={selected}
+                            setSelected={setSelected}
+                        />
+                        <Item
+                            title={!isCollapse ? "Map" : ""}
+                            to="/line"
+                            icon={<MaplinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
                         />
