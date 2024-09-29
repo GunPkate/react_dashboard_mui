@@ -7,6 +7,17 @@ import SecurityOutlinedIcon from "@mui/icons-material/SecurityOutlined"
 import Header from "../../components/Header"
 import { tokens } from "../../theme"
 
+const mockDataTeam = [
+    {
+      id: 1,
+      name: "Jon Snow",
+      email: "jonsnow@gmail.com",
+      age: 35,
+      phone: "(665)121-5454",
+      access: "admin",
+    },
+]
+
 export default function Team() {
     const theme = useTheme();
     const colors = tokens(theme.palette.mode);
@@ -21,7 +32,7 @@ export default function Team() {
         { field: "city", headerName: "City", flex: 1 },
         { field: "zipCode", headerName: "ZipCode", flex: 1 },
         {
-            field: "access", headerName: "Access Level", flex: 1, renderCell: ({ rows: { access } }) => {
+            field: "access", headerName: "Access Level", flex: 1, renderCell: ({ row: { access } }) => {
                 return (
                     <Box
                         width="60%"
@@ -62,7 +73,7 @@ export default function Team() {
                     "& .MuiDataGrid-toolbarContainer .MuiButton-text": { color: `${colors.grey[100]} !important` }
                 }}
             >
-                {/* <DataGrid rows={mockDataTeam} columns={columns} components= {{ Toolbar: GridToolbar }} /> */}
+                <DataGrid rows={mockDataTeam} columns={columns} components= {{ Toolbar: GridToolbar }} />
             </Box>
         </Box>
     )
