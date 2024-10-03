@@ -48,7 +48,7 @@ export default function Calendar() {
                     {currentEvents.map((event) => (
                         <ListItem
                             key={event.id}
-                            sx={{ backgroundColor: colors.greenAccent[500], margin: "10px 0", borderRadius: "5px" }}
+                            sx={{ backgroundColor: colors.greenAccent[700], margin: "10px 0", borderRadius: "5px" }}
                         >
                             <ListItemText
                                 primary={event.title}
