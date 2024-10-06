@@ -10,10 +10,10 @@ import Invoice from './scenes/invoice';
 import Form from './scenes/form';
 import Calendar from './scenes/calendar';
 import Faq from './scenes/faq';
-import Barchart from './scenes/barchart';
-import Piechart from './scenes/piechart';
+import Barchart from './scenes/chart/barchart';
+import Piechart from './scenes/chart/piechart';
 import Map from './scenes/map';
-import Linechart from './scenes/linechart';
+import Linechart from './scenes/chart/linechart';
 
 
 function App() {
