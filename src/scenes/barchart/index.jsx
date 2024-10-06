@@ -133,19 +133,20 @@ export default function Barchart({ isDashboard = false }) {
                     line: { stroke: colors.blueAccent[300] }
                 },
                 legend: {
-                    text: { fill: colors.primary[100] }
+                    text: { fill: colors.primary[100], fontSize: 19 }
                 },
                 ticks: {
                     line: {
                         stroke: colors.blueAccent[300],
                         strokeWidth: 2
                     },
-                    text: { fill: colors.primary[100] }
+                    text: { fill: colors.primary[100], fontSize: 14, }
                 }
-            }
+            },
+            legends: { text: { fontSize: 20, fill: colors.primary[100]  }  },
         }}
         indexBy="country"
-        margin={{ top: 20, right: 130, bottom: 150, left: 60 }}
+        margin={{ top: 20, right: 140, bottom: 160, left: 60 }}
         padding={0.4}
         valueScale={{ type: 'linear' }}
         indexScale={{ type: 'band', round: true }}
@@ -232,7 +233,7 @@ export default function Barchart({ isDashboard = false }) {
                 justify: false,
                 translateX: 120,
                 translateY: 0,
-                itemsSpacing: 3,
+                itemsSpacing: 6,
                 itemWidth: 100,
                 itemHeight: 20,
                 itemDirection: 'left-to-right',
