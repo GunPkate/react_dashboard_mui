@@ -10,6 +10,7 @@ import Invoice from './scenes/invoice';
 import Form from './scenes/form';
 import Calendar from './scenes/calendar';
 import Faq from './scenes/faq';
+import Barchart from './scenes/barchart';
 
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
                 <Route path="/form" element={<Form/>}/>
                 <Route path="/calendar" element={<Calendar/>}/>
                 <Route path="/faq" element={<Faq/>}/>
+                <Route path="/bar" element={<Barchart/>}/>
               </Routes>
             </main>
           </div>
