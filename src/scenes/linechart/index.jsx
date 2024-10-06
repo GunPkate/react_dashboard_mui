@@ -283,7 +283,7 @@ export default function Linechart(){
         <>
             <ResponsiveLine
                     data={data}
-                    margin={{ top: 20, right: 140, bottom: 160, left: 60 }}
+                    margin={{ top: 20, right: 140, bottom: 200, left: 60 }}
                     xScale={{ type: 'point' }}
                     yScale={{
                         type: 'linear',
@@ -293,6 +293,24 @@ export default function Linechart(){
                         reverse: false
                     }}
                     yFormat=" >-.2f"
+                    theme={{
+                        axis: {
+                            domain: {
+                                line: { stroke: colors.blueAccent[300] }
+                            },
+                            // legend: {
+                            //     text: { fill: colors.primary[100], fontSize: 19 }
+                            // },
+                            ticks: {
+                                line: {
+                                    stroke: colors.blueAccent[300],
+                                    strokeWidth: 2
+                                },
+                                text: { fill: colors.primary[100], fontSize: 14, }
+                            }
+                        },
+                        legends: { text: { fontSize: 20, fill: colors.primary[100]  }  },
+                    }}
                     axisTop={null}
                     axisRight={null}
                     axisBottom={{
