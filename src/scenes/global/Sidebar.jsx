@@ -189,7 +189,7 @@ const Sidebar = () => {
                         />
                         <Item
                             title={!isCollapse ? "Map" : ""}
-                            to="/line"
+                            to="/map"
                             icon={<MaplinedIcon />}
                             selected={selected}
                             setSelected={setSelected}
