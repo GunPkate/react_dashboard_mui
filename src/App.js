@@ -11,6 +11,7 @@ import Form from './scenes/form';
 import Calendar from './scenes/calendar';
 import Faq from './scenes/faq';
 import Barchart from './scenes/barchart';
+import Piechart from './scenes/piechart';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
                 <Route path="/calendar" element={<Calendar/>}/>
                 <Route path="/faq" element={<Faq/>}/>
                 <Route path="/bar" element={<Barchart/>}/>
+                <Route path="/pie" element={<Piechart/>}/>
               </Routes>
             </main>
           </div>
