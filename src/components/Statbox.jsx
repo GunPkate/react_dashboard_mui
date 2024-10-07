@@ -1,7 +1,6 @@
 import { Box, Typography, useTheme } from "@mui/material";
-import Header from "../../components/Header";
-import { tokens } from "../../theme";
-import ProgressCircle from "../../components/ProgressCircle";
+import { tokens } from "../theme";
+import ProgressCircle from "./ProgressCircle";
 
 const Statbox = ({ title, subtitle, icon, progress, increase }) => {
     const theme = useTheme();
@@ -22,7 +21,6 @@ const Statbox = ({ title, subtitle, icon, progress, increase }) => {
                 <Box>
                     <ProgressCircle progress={progress}/>
                 </Box>
-                {/* <Header title="Dashboard" Subtitle="Welcome" /> */}
                 <Box display="flex" justifyContent="space-between">
                     <Typography variant="5h" sx={{ color: colors.greenAccent[500]}}>
                         {subtitle}
@@ -41,4 +39,4 @@ const Statbox = ({ title, subtitle, icon, progress, increase }) => {
     )
 }
 
-export default Dashboard;
+export default Statbox;
