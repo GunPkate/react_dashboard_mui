@@ -1,5 +1,4 @@
-import { Box, Typography, useTheme } from "@mui/material"
-import { tokens } from "../../../theme"
+import { Box } from "@mui/material"
 import BarChart from "../../../components/chart/BarChart";
 import Header from "../../../components/Header";
 
@@ -114,8 +113,6 @@ const data = [
 
 
 export default function Barchart({ isDashboard = false }) {
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode);
     return (
     <Box m="20px">
       <Header title="Bar Chart" subtitle="Simple Bar Chart" />

@@ -1,7 +1,6 @@
-import { useTheme } from "@emotion/react";
-import { ResponsivePie } from "@nivo/pie";
-import { tokens } from "../../../theme";
-import { Palette } from "@mui/icons-material";
+import { Box } from "@mui/material";
+import Header from "../../../components/Header";
+import PieChart from "../../../components/chart/PieChart";
 
 const data = [
     {
@@ -37,142 +36,12 @@ const data = [
   ]
 
 export default function Piechart(){
-    const theme =useTheme();
-    const colors = tokens(theme.palette.mode);
     return (
-    <>
-        <ResponsivePie
-        data={data}
-        margin={{ top: 40, right: 80, bottom: 140, left: 80 }}
-        innerRadius={0.5}
-        padAngle={0.7}
-        cornerRadius={3}
-        activeOuterRadiusOffset={8}
-        borderWidth={1}
-        theme={{ 
-            legends: { text: { fontSize: 20 } },
-            labels: { text: { fontSize: 20 } },
-        }}
-        borderColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    0.2
-                ]
-            ]
-        }}
-        arcLinkLabelsSkipAngle={10}
-        arcLinkLabelsTextColor={colors.primary[100]} 
-        arcLinkLabelsThickness={2}
-        arcLinkLabelsColor={{ from: 'color' }}
-        arcLabelsSkipAngle={10}
-        arcLabelsTextColor={{
-            from: 'color',
-            modifiers: [
-                [
-                    'darker',
-                    2
-                ]
-            ]
-        }}
-        defs={[
-            {
-                id: 'lines',
-                type: 'patternDots',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                size: 8,
-                padding: 1,
-                stagger: true
-            },
-            {
-                id: 'lines',
-                type: 'patternLines',
-                background: 'inherit',
-                color: 'rgba(255, 255, 255, 0.3)',
-                rotation: -45,
-                lineWidth: 6,
-                spacing: 10
-            }
-        ]}
-        fill={[
-            {
-                match: {
-                    id: 'ruby'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'c'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'go'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'python'
-                },
-                id: 'dots'
-            },
-            {
-                match: {
-                    id: 'scala'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'lisp'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'elixir'
-                },
-                id: 'lines'
-            },
-            {
-                match: {
-                    id: 'javascript'
-                },
-                id: 'lines'
-            }
-        ]}
-        legends={[
-            {
-                anchor: 'bottom',
-                direction: 'row',
-                justify: false,
-                translateX: 0,
-                translateY: 56,
-                itemsSpacing: 0,
-                itemWidth: 100,
-                itemHeight: 18,
-                itemTextColor: colors.primary[100],
-                itemDirection: 'left-to-right',
-                itemOpacity: 1,
-                symbolSize: 18,
-                fontSize: 25,
-                symbolShape: 'circle',
-                effects: [
-                    {
-                        on: 'hover',
-                        style: {
-                            itemTextColor: colors.primary[100],
-                        }
-                    }
-                ]
-            }
-        ]}
-    />
-    </>
+        <Box m="20px">
+            <Header title="Pie Chart" subtitle="Simple Pie Chart" />
+            <Box height="75vh">
+                <PieChart data={data}/>
+            </Box>
+        </Box>
     )
 }

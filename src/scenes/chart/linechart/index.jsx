@@ -1,11 +1,8 @@
-import { Box, useTheme } from "@mui/material"
-import { tokens } from "../../../theme"
+import { Box } from "@mui/material"
 import LineChart from "../../../components/chart/LineChart";
 import Header from "../../../components/Header";
 
 export default function Linechart(){
-    const theme = useTheme();
-    const colors = tokens(theme.palette.mode)
     
     const data = [
         {
@@ -282,10 +279,10 @@ export default function Linechart(){
 
     return (
       <Box m="20px">
-      <Header title="Line Chart" subtitle="Simple Line Chart" />
-      <Box height="75vh">
-        <LineChart data={data}/>
+        <Header title="Line Chart" subtitle="Simple Line Chart" />
+        <Box height="75vh">
+          <LineChart data={data}/>
+        </Box>
       </Box>
-    </Box>
     )
 }
